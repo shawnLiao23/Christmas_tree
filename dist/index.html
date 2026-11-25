@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b14">
+  <meta name="description" content="一棵由 ASCII 字符构成的 3D 圣诞树。旋转、飘雪与金色灯光，把祝福送给想念的人。可下载 20 秒竖屏影片与可修改网页。">
+  <meta property="og:title" content="ASCII Christmas · 字符之间，圣诞发光">
+  <meta property="og:description" content="送你一棵会发光的 3D 字符圣诞树。在线播放、写下祝福，免费下载 20 秒竖屏影片与网页源码。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ascii-christmas-shawn-2026.festivebuffalo2.chatgpt.site/">
+  <meta property="og:image" content="https://ascii-christmas-shawn-2026.festivebuffalo2.chatgpt.site/preview.jpg">
+  <title>ASCII Christmas · 字符之间，圣诞发光</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070914'/%3E%3Ctext x='32' y='50' text-anchor='middle' font-size='62' fill='%23f9cc67'%3E*%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="exhibition">
+    <aside class="sidebar" aria-label="动画与祝福设置">
+      <header class="introduction">
+        <p class="eyebrow"><span class="asterisk">*</span> ASCII CHRISTMAS <span class="year">2026</span></p>
+        <h1>字符之间，<br>圣诞发光。</h1>
+        <p class="description">让每一个字符，都有温度。<br>把一棵会发光的圣诞树，送给心里的人。</p>
+      </header>
+      <button class="mobile-toggle" id="mobile-toggle" aria-expanded="false" aria-controls="control-body"><span>* ASCII CHRISTMAS</span><span id="mobile-toggle-label">播放与调整 +</span></button>
+      <div class="control-body" id="control-body">
+        <section class="playback" aria-label="播放控制">
+          <div class="playback-heading">
+            <button class="play-button" id="play" aria-label="暂停动画"><span class="play-icon" aria-hidden="true">Ⅱ</span><span id="play-label">暂停</span></button>
+            <span class="time"><span id="current-time">00:00</span><span class="time-divider">/</span>00:20</span>
+            <button class="text-button" id="fullscreen">全屏</button>
+          </div>
+          <label class="sr-only" for="timeline">播放进度</label>
+          <input class="timeline" id="timeline" type="range" min="0" max="20" step="0.01" value="0">
+          <p class="interaction-hint">拖动画面，自由旋转</p>
+        </section>
+        <details class="settings">
+          <summary><span>写下你的圣诞祝福</span><span class="details-mark" aria-hidden="true">+</span></summary>
+          <div class="settings-inner">
+            <label class="field-label" for="greeting">主祝福</label>
+            <input class="text-input" id="greeting" type="text" maxlength="32" value="MERRY CHRISTMAS" autocomplete="off">
+            <label class="field-label" for="subtitle">想说的话</label>
+            <input class="text-input" id="subtitle" type="text" maxlength="28" value="愿所有美好，如雪而至" autocomplete="off">
+            <div class="range-setting"><label for="speed">旋转速度</label><output id="speed-value" for="speed">1.0×</output><input id="speed" type="range" min="0" max="2" step="0.1" value="1"></div>
+            <div class="range-setting"><label for="snow">飘雪</label><output id="snow-value" for="snow">100%</output><input id="snow" type="range" min="0" max="2" step="0.1" value="1"></div>
+            <div class="range-setting"><label for="glow">金色辉光</label><output id="glow-value" for="glow">100%</output><input id="glow" type="range" min="0" max="2" step="0.1" value="1"></div>
+            <button class="text-button reset-button" id="reset">恢复初始画面</button>
+            <p class="setting-note">调整实时生效；下载影片为原始版本。</p>
+          </div>
+        </details>
+        <div class="downloads">
+          <a class="download-main" href="christmas-ascii-20s.mp4" download="christmas-ascii-20s.mp4"><span>下载圣诞影片</span><span class="download-meta">MP4 · 20s</span></a>
+          <a class="download-source" href="christmas-ascii-source.zip" download="christmas-ascii-source.zip">下载可修改网页 <span>ZIP</span></a>
+        </div>
+        <p class="closing-note">MADE OF TYPE. SENT WITH LOVE.</p>
+      </div>
+    </aside>
+    <section class="stage" aria-label="3D ASCII 圣诞树动画">
+      <div class="artwork" id="artwork">
+        <canvas id="scene" width="1080" height="1920" aria-label="旋转的彩色 ASCII 圣诞树，金色螺旋灯带、立体星星和礼物，伴随飘雪与圣诞祝福">你的浏览器暂不支持 Canvas。请下载 MP4 观看圣诞动画。</canvas>
+        <button class="exit-fullscreen" id="exit-fullscreen">退出全屏</button>
+      </div>
+      <p class="stage-caption"><span>AN ASCII CHRISTMAS</span><span>9:16 · 20 SECONDS</span></p>
+    </section>
+  </main>
+  <div class="sr-only" id="status" role="status" aria-live="polite"></div>
+  <script src="scene.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

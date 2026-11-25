@@ -1,0 +1,11 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const {execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'..'),dist=path.join(root,'dist');
+let html=fs.readFileSync(path.join(dist,'index.html'),'utf8');
+html=html.replace('<link rel="stylesheet" href="styles.css">',()=>'<style>\n'+fs.readFileSync(path.join(dist,'styles.css'),'utf8')+'\n</style>');
+for(const file of ['scene.js','app.js'])html=html.replace(`<script src="${file}"></script>`,()=>'<script>\n'+fs.readFileSync(path.join(dist,file),'utf8')+'\n</script>');
+fs.writeFileSync(path.join(dist,'christmas-ascii.html'),html);
+const code=`import zipfile, pathlib\nr=pathlib.Path(__import__('sys').argv[1])\nwith zipfile.ZipFile(r/'dist/christmas-ascii-source.zip','w',zipfile.ZIP_DEFLATED) as z:\n for f in ['index.html','styles.css','scene.js','app.js','christmas-ascii.html']:\n  z.write(r/'dist'/f, f)\n for f in ['README.md','package.json','scripts/render-video.cjs','scripts/check-playback.cjs','scripts/package-source.cjs']:\n  z.write(r/f,f)\n`;
+execFileSync('python',['-c',code,root],{stdio:'inherit',windowsHide:true});
+console.log('Updated standalone HTML and editable source ZIP.');

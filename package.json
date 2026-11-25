@@ -1,0 +1,13 @@
+{
+  "name": "ascii-christmas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A 3D ASCII Christmas tree and a deterministic 20-second portrait film",
+  "scripts": {
+    "serve": "python -m http.server 8000 --directory dist",
+    "package:source": "node scripts/package-source.cjs",
+    "render": "node scripts/render-video.cjs http://127.0.0.1:8000/ dist/christmas-ascii-20s.mp4",
+    "verify:video": "node scripts/check-playback.cjs dist/christmas-ascii-20s.mp4 qa/playback"
+  },
+  "devDependencies": {"playwright-core": "1.65.1"}
+}

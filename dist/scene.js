@@ -5,13 +5,16 @@
   const ctx = canvas.getContext('2d', { alpha: false });
   const W = 1080, H = 1920, TAU = Math.PI * 2, D = 1650;
   canvas.width = W; canvas.height = H;
-  const defaults = { speed: 1, snow: 1, glow: 1, greeting: 'MERRY CHRISTMAS', subtitle: '愿所有美好，如雪而至' };
+  const defaults = { speed: 1, snow: 1, glow: 1, greeting: 'marry Christmas tian zisu !', subtitle: '把这一夜的星光，都送给你。' };
   let options = { ...defaults }, time = 0, playing = true, last = performance.now(), view = 0;
+  const clamp = n => Math.max(0, Math.min(1, n));
+  const smooth = n => { n = clamp(n); return n * n * (3 - 2 * n); };
+  let celebration = null;
   let seed = 20261225;
   const rand = () => ((seed = Math.imul(seed, 1664525) + 1013904223 >>> 0) / 4294967296);
   const pick = s => s[Math.floor(rand() * s.length)];
   const points = [], snow = [], sprites = new Map();
-  const greens = ['#25b58a', '#38d3a2', '#75e2b6', '#12a989', '#59b5b9', '#9bdfb7', '#7fc575', '#45a19c'];
+  const greens = ['#32bdaf', '#52d6c0', '#b2eee0', '#26a7b3', '#7bd9ed', '#99d7fd', '#9ccee1', '#45b79c'];
   const golds = ['#b47729', '#dfa744', '#f9cc67', '#ffe394', '#fff0bc', '#fff8df'];
   function add(x, y, z, ch, color, type = 'leaf', extra = {}) {
     points.push({ x, y, z, ch, color, type, phase: rand() * TAU, ...extra });
@@ -90,7 +93,15 @@
     const a=rand()*TAU,r=95+rand()*440;
     add(Math.cos(a)*r,-139-rand()*4,Math.sin(a)*r*.8,pick('.:+' ),pick(['#244657','#335465','#557177','#9a916b']),'floor');
   }
-  for(let i=0;i<240;i++)snow.push({x:rand()*W,y:rand()*H,p:rand()*TAU,size:9+rand()*12,alpha:.14+rand()*.55,loops:1+i%2});
+  for(let i=0;i<320;i++)snow.push({x:rand()*W,y:rand()*H,p:rand()*TAU,size:8+rand()*15,alpha:.12+rand()*.55,loops:1+i%2});
+  const dust=Array.from({length:180},()=>({x:rand()*W,y:rand()*H,p:rand()*TAU,s:5+rand()*8}));
+  const wishDust=[];
+  for(const line of [{s:'marry Christmas',y:1635,size:64,start:7.9},{s:'tian zisu !',y:1733,size:94,start:9.7}]){
+    const m=document.createElement('canvas');m.width=1080;m.height=150;
+    const a=m.getContext('2d');a.font=`italic ${line.size}px Georgia, "Times New Roman", serif`;a.textAlign='center';a.textBaseline='middle';a.fillStyle='white';a.fillText(line.s,540,75);
+    const data=a.getImageData(0,0,1080,150).data;
+    for(let y=0;y<150;y+=7)for(let x=0;x<1080;x+=7)if(data[(y*1080+x)*4+3]>100)wishDust.push({x,y:line.y+y-75,p:rand()*TAU,r:60+rand()*180,start:line.start+(x-180)/720*1.4});
+  }
   function sprite(ch,color,glow) {
     const key=ch+color+glow;
     if(sprites.has(key))return sprites.get(key);
@@ -107,22 +118,46 @@
   const b=bg.getContext('2d');b.fillStyle='#030914';b.fillRect(0,0,W,H);
   let grad=b.createRadialGradient(535,930,50,535,930,790);grad.addColorStop(0,'#0c242c');grad.addColorStop(.55,'#07131f');grad.addColorStop(1,'#030711');b.fillStyle=grad;b.fillRect(0,0,W,H);
   grad=b.createRadialGradient(540,1410,0,540,1410,470);grad.addColorStop(0,'#142329');grad.addColorStop(1,'#07111c00');b.fillStyle=grad;b.fillRect(0,1100,W,650);
-  function text(str,y,size,color,font='Consolas, monospace',spacing=0) {
-    ctx.globalAlpha=1;ctx.fillStyle=color;ctx.font=`${size}px ${font}`;ctx.textAlign='center';ctx.textBaseline='middle';
+  function text(str,y,size,color,font='Consolas, monospace',spacing=0,alpha=1) {
+    ctx.globalAlpha=alpha;ctx.fillStyle=color;ctx.font=`${size}px ${font}`;ctx.textAlign='center';ctx.textBaseline='middle';
     if(!spacing){ctx.fillText(str,W/2,y);return;}
     const chars=Array.from(str),width=chars.reduce((n,ch)=>n+ctx.measureText(ch).width,0)+spacing*(chars.length-1);let x=(W-width)/2;
     ctx.textAlign='left';for(const ch of chars){ctx.fillText(ch,x,y);x+=ctx.measureText(ch).width+spacing;}
   }
+  function revealText(str,y,size,start,t){
+    ctx.font=`italic ${size}px Georgia, "Times New Roman", serif`;ctx.textBaseline='middle';ctx.textAlign='left';
+    const chars=Array.from(str),width=ctx.measureText(str).width;let x=(W-width)/2;
+    chars.forEach((ch,i)=>{
+      const progress=clamp((t-start-i*.105)/1.05),settle=1-Math.pow(1-progress,3),w=ctx.measureText(ch).width;
+      if(progress>0){
+        ctx.globalAlpha=smooth(progress*2);ctx.fillStyle='#f8e5bd';ctx.shadowColor='#eebb69';ctx.shadowBlur=(1-progress)*23+2;
+        ctx.fillText(ch,x+Math.sin(i*2.7)*(1-settle)*25,y+(1-settle)*40);
+      }
+      x+=w;
+    });ctx.shadowBlur=0;ctx.globalAlpha=1;
+  }
+  function arrival(p,t){
+    if(p.type==='leaf')return smooth((t-.45-(p.y-125)/725*2.15)/1.65);
+    if(p.type==='ribbon')return smooth((t-2.8-(p.y-139)/695*1.8)/.85);
+    if(p.type==='star')return smooth((t-4.7)/1.1);
+    if(p.type==='gift')return smooth((t-4.6-p.gid*.28)/1.1);
+    if(p.type==='wood')return smooth((t-.3)/1.7);
+    return smooth(t/2.5);
+  }
   function draw(t) {
     const loop=t/20*TAU,rot=loop*options.speed+view,cs=Math.cos(rot),sn=Math.sin(rot),out=[];
+    const zoom=1+.22*(1-smooth((t-2.5)/4)),baseY=1307;
+    const project=(x,y,z)=>{const f=D/(D-z);return {x:540+x*f*zoom,y:870+(baseY-(y+z*.105)*f-870)*zoom,f};};
     ctx.globalAlpha=1;ctx.drawImage(bg,0,0);
-    text('*  A LITTLE LIGHT, A LITTLE MAGIC  *',115,17,'#a9a993','Consolas, monospace',3);
-    text('C H R I S T M A S   /   2 0 2 6',157,13,'#617783');
+    text('FOR YOU, TIAN ZISU',112,20,'#e0c996','Consolas, monospace',5,smooth(t/1.5));
+    text('A LITTLE CHRISTMAS MAGIC',157,13,'#6d939e','Consolas, monospace',3,smooth((t-.5)/2));
+    for(const d of dust)glyph('.',d.x+Math.sin(loop+d.p)*18,d.y,d.s,'#8bd9ec',(.06+.1*Math.sin(loop*2+d.p)**2));
     for(const s of snow){
       const yy=((s.y+t/20*H*s.loops)%H+H)%H,xx=s.x+Math.sin(loop+s.p)*17;
-      glyph(s.size>19?'*':s.size>14?'+':'.',xx,yy,s.size,'#b8d6dd',s.alpha*options.snow*.65);
+      glyph(s.size>20?'*':s.size>14?'+':'.',xx,yy,s.size,'#b8d6dd',s.alpha*options.snow*(.45+.25*smooth(t/6)));
     }
     for(const p of points){
+      const gather=arrival(p,t);if(gather===0)continue;
       let x=p.x,y=p.y,z=p.z,n=1,alpha=1,sz=13,glow=0;
       if(p.type==='star'){
         const a=.38+Math.sin(loop)*.65,ca=Math.cos(a),sa=Math.sin(a);x=p.sx*ca+p.sz*sa;y=963+p.sy;z=-p.sx*sa+p.sz*ca;
@@ -142,38 +177,81 @@
           alpha*=.82+.18*Math.sin(loop*4+p.phase)**2;
         }else{alpha=n<0?.28:.9;sz=14;}
       }else{alpha=.5;sz=10;}
-      const perspective=D/(D-z),px=540+x*perspective,py=1307-(y+z*.105)*perspective;
+      if(gather<1){
+        const remain=1-gather,a=p.phase+t*.9;
+        x+=Math.cos(a)*remain*(250+p.phase*38);z+=Math.sin(a)*remain*260;
+        y+=remain*(Math.sin(p.phase*3)*310-130);alpha*=smooth(gather*2);
+        if(p.type==='star')y+=remain*180;
+      }
+      const q=project(x,y,z),px=q.x,py=q.y;
       if(px<-30||px>W+30||py<180||py>1580)continue;
-      out.push({p,px,py,z,sz:sz*perspective,alpha,glow});
+      out.push({p,px,py,z,sz:sz*q.f*zoom,alpha,glow});
+    }
+    // Two blue-white comets weave in front of and behind the glyph branches.
+    if(t>2.6)for(let band=0;band<2;band++)for(let j=0;j<160;j++){
+      const head=((t-2.6)/5.1+band*.48)%1,h=(head-j*.00135+1)%1;
+      const y=155+h*680,a=h*TAU*4.65+.8-rot,r=radius(y,a+rot)+23+band*6;
+      const x=Math.cos(a)*r,z=Math.sin(a)*r,q=project(x,y,z),front=Math.sin(a);
+      const alpha=(1-j/160)*smooth((t-2.6)/1.3)*(front<0?.06:.87)*options.glow;
+      out.push({p:{ch:j<5?'*':j%3?'.':'+',color:j<7?'#e7fbff':'#76d9ff'},px:q.x,py:q.y,z,sz:(j<5?17:10)*q.f,alpha,glow:j<45?2:1});
+    }
+    // A slanted orbit of stardust gives the whole tree a larger, moving silhouette.
+    if(t>4)for(let j=0;j<145;j++){
+      const a=t*.7-j*.008,r=428,x=Math.cos(a)*r,z=Math.sin(a)*r*.8,y=430+Math.sin(a)*170,q=project(x,y,z);
+      out.push({p:{ch:j<3?'*':'.',color:j<7?'#fff0c1':'#80d0ed'},px:q.x,py:q.y,z,sz:j<4?19:9,alpha:(1-j/145)*.7*smooth((t-4)/1.8)*options.glow,glow:j<18?2:1});
     }
     out.sort((a,b)=>a.z-b.z);
     for(const a of out)glyph(a.p.ch,a.px,a.py,a.sz,a.p.color,a.alpha,a.glow);
+    // The star blooms once, then continues to breathe softly after the reveal.
+    const starQ=project(0,963,0),burst=Math.exp(-Math.pow((t-5.9)/.38,2));
+    if(t>5.3){
+      const pulse=(.12+.08*Math.sin(loop*5)**2+burst*.6)*options.glow;
+      ctx.globalAlpha=pulse;const halo=ctx.createRadialGradient(starQ.x,starQ.y,0,starQ.x,starQ.y,180);
+      halo.addColorStop(0,'#b6f4ff77');halo.addColorStop(.35,'#62d4ff22');halo.addColorStop(1,'#62d4ff00');ctx.fillStyle=halo;ctx.fillRect(starQ.x-180,starQ.y-180,360,360);
+      glyph('+',starQ.x,starQ.y,110+burst*150,'#d8f6ff',pulse,2);
+      glyph('+',starQ.x,starQ.y,48+burst*60,'#fff4cf',pulse+.12,2);
+    }
+    if(t>5.75&&t<7.65){
+      const age=(t-5.75)/1.9;
+      for(let i=0;i<70;i++){const a=i/70*TAU,r=60+age*(180+i%7*12);glyph(i%4?'.':'+',starQ.x+Math.cos(a)*r,starQ.y+Math.sin(a)*r*.8,10,'#8edfff',(1-age)**2*.75,1);}
+    }
     // Glint crosses are ASCII glyphs, too.
     const glints=[[-56,960,21],[62,940,29],[-224,410,51],[146,560,12],[284,250,26],[-292,-5,18],[170,5,32]];
     glints.forEach(([x,y,phase],i)=>{
-      const a=Math.max(0,Math.sin(loop*3+phase))**12*options.glow;
+      const a=Math.max(0,Math.sin(loop*3+phase))**12*options.glow*smooth((t-5)/1.5);
       const f=D/(D-(i<2?25:220));glyph('+',540+x*f,1307-(y+23)*f,24+i%2*8,'#fff3c2',a,2);
     });
-    const greeting=options.greeting.trim()||defaults.greeting;
-    if(greeting.toUpperCase()==='MERRY CHRISTMAS'){
-      text('MERRY',1636,55,'#e7d4a7','Georgia, "Times New Roman", serif',16);
-      text('CHRISTMAS',1712,81,'#f5e7c8','Georgia, "Times New Roman", serif',7);
-    }else{
-      text(greeting.slice(0,40),1683,Math.min(72,1170/(Array.from(greeting).length*.7)),'#f5e7c8','Georgia, "Microsoft YaHei", serif',2);
+    if(t>7.6&&t<13.8)for(const p of wishDust){
+      const age=(t-p.start)/1.65;if(age<0||age>1.25)continue;
+      const g=smooth(age),r=(1-g)*p.r;
+      glyph('+',p.x+Math.cos(p.p+t*.4)*r,p.y+Math.sin(p.p+t*.4)*r,8,'#f6cc83',Math.sin(clamp(age)*Math.PI)*.85,1);
     }
-    text(options.subtitle.slice(0,45),1804,24,'#91a9ad','"Microsoft YaHei", sans-serif',5);
-    text('+  MAY YOUR DAYS BE MERRY & BRIGHT  +',1866,13,'#637e88','Consolas, monospace',2);
+    const greeting=options.greeting.trim()||defaults.greeting;
+    if(greeting===defaults.greeting){
+      revealText('marry Christmas',1635,64,7.9,t);
+      revealText('tian zisu !',1733,94,9.7,t);
+    }else{
+      revealText(greeting.slice(0,40),1685,Math.min(65,1100/(Array.from(greeting).length*.7)),8,t);
+    }
+    text(options.subtitle.slice(0,45),1830,23,'#90adb4','"Microsoft YaHei", sans-serif',3,smooth((t-12.2)/1.8));
+    if(celebration){
+      const age=(performance.now()-celebration.at)/1800;
+      if(age>1)celebration=null;else for(let i=0;i<80;i++){
+        const a=i/80*TAU,r=age*(70+i%9*16),x=celebration.x+Math.cos(a)*r,y=celebration.y+Math.sin(a)*r+age*age*45;
+        glyph(i%3?'+':'*',x,y,8+i%5*2,i%2?'#ffcf83':'#9eeeff',(1-age)**2,2);
+      }
+    }
     ctx.globalAlpha=1;
   }
   const api={ready:true,renderAt(t){playing=false;time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},setOptions(o){
     options={...options,...o};for(const k of ['speed','snow','glow'])options[k]=Math.max(0,Math.min(2,Number(options[k])||0));
     options.greeting=String(options.greeting);options.subtitle=String(options.subtitle);draw(time);
-  },getOptions(){return {...options};},setTime(t){time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},play(){if(time>=20)time=0;playing=true;last=performance.now();},pause(){playing=false;},isPlaying(){return playing;},getTime(){return time;},resetView(){view=0;draw(time);},onFrame:null};
+  },getOptions(){return {...options};},setTime(t){time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},play(){playing=true;last=performance.now();},pause(){playing=false;},isPlaying(){return playing;},getTime(){return time;},resetView(){view=0;draw(time);},replay(){time=0;view=0;celebration=null;playing=true;last=performance.now();draw(0);},celebrate(x,y){celebration={x:Number(x)||540,y:Number(y)||900,at:performance.now()};draw(time);},onFrame:null};
   window.__christmas=api;
   let drag=null;
   canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,view};canvas.setPointerCapture(e.pointerId);});
   canvas.addEventListener('pointermove',e=>{if(drag){view=drag.view+(e.clientX-drag.x)*.008;draw(time);}});
   canvas.addEventListener('pointerup',()=>{drag=null;});canvas.addEventListener('pointercancel',()=>{drag=null;});
-  function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing){time=(time+dt)%20;draw(time);}if(api.onFrame)api.onFrame(time,playing);requestAnimationFrame(frame);}
+  function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing){time+=dt;draw(time);}else if(celebration)draw(time);if(api.onFrame)api.onFrame(time,playing);requestAnimationFrame(frame);}
   draw(0);requestAnimationFrame(frame);
 })();

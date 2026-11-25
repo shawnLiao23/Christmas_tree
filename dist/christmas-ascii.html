@@ -3,76 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070b14">
-  <meta name="description" content="一棵由 ASCII 字符构成的 3D 圣诞树。旋转、飘雪与金色灯光，把祝福送给想念的人。可下载 20 秒竖屏影片与可修改网页。">
-  <meta property="og:title" content="ASCII Christmas · 字符之间，圣诞发光">
-  <meta property="og:description" content="送你一棵会发光的 3D 字符圣诞树。在线播放、写下祝福，免费下载 20 秒竖屏影片与网页源码。">
+  <meta name="theme-color" content="#030711">
+  <meta name="description" content="献给 tian zisu 的圣诞礼物。愿漫天星光和所有温柔，都奔向你。">
+  <meta property="og:title" content="For tian zisu · A Christmas wish">
+  <meta property="og:description" content="献给 tian zisu 的一场圣诞星光。marry Christmas tian zisu !">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shawnliao23.github.io/Christmas_tree/">
   <meta property="og:image" content="https://shawnliao23.github.io/Christmas_tree/preview.jpg">
-  <title>ASCII Christmas · 字符之间，圣诞发光</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070914'/%3E%3Ctext x='32' y='50' text-anchor='middle' font-size='62' fill='%23f9cc67'%3E*%3C/text%3E%3C/svg%3E">
+  <title>For tian zisu · A Christmas wish</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23030711'/%3E%3Ctext x='32' y='50' text-anchor='middle' font-size='62' fill='%23f9cc67'%3E*%3C/text%3E%3C/svg%3E">
   <style>
-:root{color-scheme:dark;--bg:#070b14;--text:#ede8dd;--muted:#8e98ac;--gold:#d9b97f;--line:rgba(209,186,143,.18);font-family:"Segoe UI","Microsoft YaHei",sans-serif;font-synthesis:none}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 72% 38%,#101a2c 0,transparent 53%),var(--bg);color:var(--text);min-height:100svh}button,input,a,summary{-webkit-tap-highlight-color:transparent}button,a,input,summary{outline-offset:5px}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold)}a{color:inherit;text-decoration:none}.exhibition{min-height:100svh;max-width:1392px;margin:auto;display:grid;grid-template-columns:minmax(300px,400px) minmax(0,1fr);align-items:center;gap:clamp(64px,9vw,152px);padding:56px clamp(30px,6.6vw,96px)}.sidebar{padding:12px 0}.eyebrow{display:flex;align-items:center;gap:12px;font:12px/1.5 Consolas,monospace;letter-spacing:.18em;color:var(--gold);margin:0 0 38px}.asterisk{font-size:25px;line-height:1}.year{margin-left:auto;color:#728198;letter-spacing:.1em}h1{font-family:"Songti SC","Noto Serif SC","SimSun",serif;font-size:clamp(38px,3.9vw,56px);font-weight:400;line-height:1.45;letter-spacing:.06em;margin:0 0 24px}.description{font-size:15px;line-height:1.9;color:var(--muted);margin:0 0 34px}.playback{border-top:1px solid var(--line);padding-top:20px}.playback-heading{display:flex;align-items:center;gap:18px}.play-button{display:flex;align-items:center;gap:9px;font-size:14px;min-width:69px;padding:0;border:0;background:none}.play-icon{font:19px/1 Consolas,monospace;color:var(--gold);min-width:18px;text-align:center}.time{font:12px/1.5 Consolas,monospace;letter-spacing:.025em;color:var(--muted)}.time-divider{padding:0 10px;color:#4c576b}.text-button{font-size:14px;color:var(--muted);padding:4px 0;border:0;background:none}.text-button:hover{color:var(--gold)}#fullscreen{margin-left:auto}input[type=range]{--progress:50%;appearance:none;-webkit-appearance:none;width:100%;height:3px;background:linear-gradient(to right,var(--gold) 0 var(--progress),#293244 var(--progress) 100%);border-radius:10px;cursor:pointer;display:block;accent-color:var(--gold)}input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--gold);border:0;box-shadow:0 0 12px #d9b97f35}input[type=range]::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--gold);border:0}.timeline{margin:20px 0 13px;--progress:0%}.interaction-hint{font-size:12px;color:#707e95;letter-spacing:.06em;margin:0 0 20px}.settings{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.settings summary{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;list-style:none;font-size:14px;color:#c6c6c7}.settings summary::-webkit-details-marker{display:none}.details-mark{color:var(--gold);font:20px/1 Consolas,monospace;transition:transform .2s}.settings[open] .details-mark{transform:rotate(45deg)}.settings-inner{padding:3px 0 22px}.field-label{display:block;font-size:13px;color:var(--muted);margin:0 0 8px}.text-input{width:100%;background:#111929;border:1px solid #2b3548;border-radius:4px;color:var(--text);padding:10px 12px;font-family:inherit;font-size:14px;line-height:1.4;margin:0 0 16px;min-height:41px}.text-input:focus{border-color:var(--gold)}.range-setting{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:13px;color:var(--muted);margin:6px 0 19px}.range-setting input{grid-column:1/-1;margin:0}.range-setting output{font:12px/1.5 Consolas,monospace;color:var(--gold)}.reset-button{font-size:13px}.setting-note{font-size:12px;line-height:1.7;color:#707e95;margin:12px 0 0}.downloads{padding-top:23px}.download-main{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #897344;border-radius:4px;padding:15px 17px;color:#e5c998;background:#d9b97f0a;font-size:14px;transition:background .2s,border-color .2s}.download-main:hover{background:#d9b97f18;border-color:var(--gold)}.download-meta{font:11px/1.5 Consolas,monospace;white-space:nowrap;color:#ab936b}.download-source{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:16px 1px 0}.download-source span{font:11px/1.5 Consolas,monospace;color:#69768c}.download-source:hover{color:var(--gold)}.closing-note{font:10px/1.5 Consolas,monospace;letter-spacing:.15em;color:#55637b;margin:30px 0 0}.stage{justify-self:center;width:min(100%,calc(81svh * 9 / 16));position:relative}.artwork{position:relative;aspect-ratio:9/16;overflow:hidden;background:#050912;border:1px solid #212b3b;box-shadow:0 36px 100px #0007,0 0 80px #15294333}.artwork canvas{display:block;width:100%;height:100%;object-fit:contain;touch-action:none;cursor:grab}.artwork canvas:active{cursor:grabbing}.stage-caption{display:flex;justify-content:space-between;color:#596980;font:10px/1.6 Consolas,monospace;letter-spacing:.1em;gap:14px;margin:13px 0 0}.exit-fullscreen{display:none;position:absolute;right:24px;top:24px;background:#070b14bb;border:1px solid #6d6248;border-radius:4px;padding:10px 15px;font-size:14px}.artwork:fullscreen{border:0;aspect-ratio:auto;display:grid;place-items:center;width:100vw;height:100vh;background:#050912}.artwork:fullscreen canvas{width:auto;height:100vh;max-width:100vw;object-fit:contain}.artwork:fullscreen .exit-fullscreen{display:block}.mobile-toggle{display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(min-width:1600px){.exhibition{gap:160px}.stage{width:min(100%,calc(84svh * 9 / 16))}}
-@media(max-width:900px) and (min-width:701px){.exhibition{gap:40px;padding:36px 28px;grid-template-columns:minmax(250px,310px) minmax(0,1fr)}h1{font-size:38px}.description{font-size:14px}.eyebrow{margin-bottom:25px;letter-spacing:.1em}.stage{width:100%}}
-@media(max-width:700px){body{background:#050912;min-height:100svh}.exhibition{display:block;min-height:100svh;padding:0}.stage{position:fixed;inset:0;width:100%;height:100svh;display:grid;place-items:center}.artwork{border:0;box-shadow:none;width:min(100vw,calc(100svh * 9 / 16));height:auto;max-height:100svh}.stage-caption,.introduction,.closing-note{display:none}.sidebar{position:fixed;bottom:0;left:0;right:0;z-index:2;padding:0 max(22px,env(safe-area-inset-right)) max(15px,env(safe-area-inset-bottom));background:linear-gradient(0deg,#070b14f5,#070b14ec 82%,#070b1400);border-top:0;max-height:74svh;overflow:auto}.mobile-toggle{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;background:none;border:0;padding:24px 0 5px;font:11px/1.5 Consolas,"Microsoft YaHei",monospace;letter-spacing:.05em;color:var(--gold);min-height:49px}.mobile-toggle span:last-child{font:13px/1.5 "Microsoft YaHei",sans-serif;color:#b7bbbf;letter-spacing:0}.control-body{display:none;padding-top:17px}.sidebar.is-open .control-body{display:block}.sidebar.is-open{padding-top:0;background:#080e19f5;border-top:1px solid #a58a5933;backdrop-filter:blur(20px)}.playback{border:0;padding-top:0}.interaction-hint{margin-bottom:16px}.downloads{padding-top:18px}.download-main{padding:12px 15px}.download-source{padding-top:13px;padding-bottom:3px}.settings summary{padding:16px 0}.settings-inner{padding-bottom:16px}.text-input{font-size:16px}.stage-caption{display:none}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-.description{font-size:16px}
-.field-label,.range-setting,.reset-button,.download-source{font-size:14px}
-@media(max-width:700px){.mobile-toggle span:last-child{font-size:14px}}
+:root {
+  color-scheme: dark;
+  --night: #030711;
+  --gold: #e1c69a;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; min-height: 100%; background: var(--night); }
+body { color: var(--gold); overflow: hidden; }
+.ambience {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 46%, #10262e88 0, #07101d44 35%, transparent 70%),
+    radial-gradient(ellipse at 14% 68%, #2b1d261a 0, transparent 42%),
+    radial-gradient(ellipse at 88% 32%, #28352622 0, transparent 43%),
+    var(--night);
+}
+.ambience::before,
+.ambience::after {
+  content: "";
+  position: absolute;
+  top: 19%;
+  width: 1px;
+  height: 48%;
+  opacity: .24;
+  background: linear-gradient(transparent, #b0925c50, transparent);
+  box-shadow: 0 0 70px 20px #c6a36508;
+}
+.ambience::before { left: calc(50% - 40vh); }
+.ambience::after { right: calc(50% - 40vh); }
+.gift-shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: max(8px, var(--safe-top)) 0 max(8px, var(--safe-bottom));
+}
+.stage {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.artwork {
+  position: relative;
+  width: min(100vw, calc((100vh - 68px - var(--safe-top) - var(--safe-bottom)) * .5625));
+  width: min(100vw, calc((100svh - 68px - var(--safe-top) - var(--safe-bottom)) * .5625));
+  aspect-ratio: 9 / 16;
+  max-height: 100%;
+  overflow: hidden;
+  background: var(--night);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  touch-action: none;
+  cursor: grab;
+}
+canvas:active { cursor: grabbing; }
+.gift-controls {
+  display: flex;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  z-index: 2;
+}
+.gift-controls button {
+  min-width: 88px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 22px;
+  padding: 10px 15px;
+  background: transparent;
+  color: #a5a59d;
+  font: 14px/1.4 "Segoe UI", "Microsoft YaHei", sans-serif;
+  letter-spacing: .1em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .2s ease, background .2s ease;
+}
+.gift-controls button:hover { color: #f1d8a8; background: #d7bc8208; }
+.gift-controls button:focus-visible { outline: 1px solid #e1c69a; outline-offset: 2px; }
+.control-separator { color: #7d7255; font-size: 14px; }
+.gift-shell:fullscreen,
+body.immersive .gift-shell {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  z-index: 10;
+  background: var(--night);
+}
+.gift-shell:fullscreen .artwork,
+body.immersive .artwork {
+  width: min(100vw, calc(100vh * .5625));
+  width: min(100vw, calc(100dvh * .5625));
+}
+.gift-shell:fullscreen .gift-controls,
+body.immersive .gift-controls {
+  position: absolute;
+  bottom: max(4px, var(--safe-bottom));
+  margin: 0;
+  padding: 0 12px;
+  border-radius: 24px;
+  background: #030711b0;
+  backdrop-filter: blur(12px);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 700px) {
+  .ambience::before, .ambience::after { display: none; }
+  .artwork { -webkit-mask-image: none; mask-image: none; }
+  .gift-controls { gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-controls button { transition: none; }
+}
 
 </style>
 </head>
 <body>
-  <main class="exhibition">
-    <aside class="sidebar" aria-label="动画与祝福设置">
-      <header class="introduction">
-        <p class="eyebrow"><span class="asterisk">*</span> ASCII CHRISTMAS <span class="year">2026</span></p>
-        <h1>字符之间，<br>圣诞发光。</h1>
-        <p class="description">让每一个字符，都有温度。<br>把一棵会发光的圣诞树，送给心里的人。</p>
-      </header>
-      <button class="mobile-toggle" id="mobile-toggle" aria-expanded="false" aria-controls="control-body"><span>* ASCII CHRISTMAS</span><span id="mobile-toggle-label">播放与调整 +</span></button>
-      <div class="control-body" id="control-body">
-        <section class="playback" aria-label="播放控制">
-          <div class="playback-heading">
-            <button class="play-button" id="play" aria-label="暂停动画"><span class="play-icon" aria-hidden="true">Ⅱ</span><span id="play-label">暂停</span></button>
-            <span class="time"><span id="current-time">00:00</span><span class="time-divider">/</span>00:20</span>
-            <button class="text-button" id="fullscreen">全屏</button>
-          </div>
-          <label class="sr-only" for="timeline">播放进度</label>
-          <input class="timeline" id="timeline" type="range" min="0" max="20" step="0.01" value="0">
-          <p class="interaction-hint">拖动画面，自由旋转</p>
-        </section>
-        <details class="settings">
-          <summary><span>写下你的圣诞祝福</span><span class="details-mark" aria-hidden="true">+</span></summary>
-          <div class="settings-inner">
-            <label class="field-label" for="greeting">主祝福</label>
-            <input class="text-input" id="greeting" type="text" maxlength="32" value="MERRY CHRISTMAS" autocomplete="off">
-            <label class="field-label" for="subtitle">想说的话</label>
-            <input class="text-input" id="subtitle" type="text" maxlength="28" value="愿所有美好，如雪而至" autocomplete="off">
-            <div class="range-setting"><label for="speed">旋转速度</label><output id="speed-value" for="speed">1.0×</output><input id="speed" type="range" min="0" max="2" step="0.1" value="1"></div>
-            <div class="range-setting"><label for="snow">飘雪</label><output id="snow-value" for="snow">100%</output><input id="snow" type="range" min="0" max="2" step="0.1" value="1"></div>
-            <div class="range-setting"><label for="glow">金色辉光</label><output id="glow-value" for="glow">100%</output><input id="glow" type="range" min="0" max="2" step="0.1" value="1"></div>
-            <button class="text-button reset-button" id="reset">恢复初始画面</button>
-            <p class="setting-note">调整实时生效；下载影片为原始版本。</p>
-          </div>
-        </details>
-        <div class="downloads">
-          <a class="download-main" href="christmas-ascii-20s.mp4" download="christmas-ascii-20s.mp4"><span>下载圣诞影片</span><span class="download-meta">MP4 · 20s</span></a>
-          <a class="download-source" href="christmas-ascii-source.zip" download="christmas-ascii-source.zip">下载可修改网页 <span>ZIP</span></a>
-        </div>
-        <p class="closing-note">MADE OF TYPE. SENT WITH LOVE.</p>
-      </div>
-    </aside>
-    <section class="stage" aria-label="3D ASCII 圣诞树动画">
+  <div class="ambience" aria-hidden="true"></div>
+  <main class="gift-shell" id="gift-shell">
+    <h1 class="sr-only">marry Christmas tian zisu !</h1>
+    <section class="stage" aria-label="献给 tian zisu 的圣诞礼物">
       <div class="artwork" id="artwork">
-        <canvas id="scene" width="1080" height="1920" aria-label="旋转的彩色 ASCII 圣诞树，金色螺旋灯带、立体星星和礼物，伴随飘雪与圣诞祝福">你的浏览器暂不支持 Canvas。请下载 MP4 观看圣诞动画。</canvas>
-        <button class="exit-fullscreen" id="exit-fullscreen">退出全屏</button>
+        <canvas id="scene" width="1080" height="1920" aria-label="marry Christmas tian zisu ! 星光中旋转的圣诞树，伴着金色灯光、礼物与飘雪。">marry Christmas tian zisu !</canvas>
       </div>
-      <p class="stage-caption"><span>AN ASCII CHRISTMAS</span><span>9:16 · 20 SECONDS</span></p>
     </section>
+    <nav class="gift-controls" aria-label="礼物播放控制">
+      <button id="replay" type="button">再看一次</button>
+      <span class="control-separator" aria-hidden="true">·</span>
+      <button id="fullscreen" type="button" aria-pressed="false">全屏</button>
+    </nav>
   </main>
   <div class="sr-only" id="status" role="status" aria-live="polite"></div>
   <script>
@@ -83,13 +183,16 @@
   const ctx = canvas.getContext('2d', { alpha: false });
   const W = 1080, H = 1920, TAU = Math.PI * 2, D = 1650;
   canvas.width = W; canvas.height = H;
-  const defaults = { speed: 1, snow: 1, glow: 1, greeting: 'MERRY CHRISTMAS', subtitle: '愿所有美好，如雪而至' };
+  const defaults = { speed: 1, snow: 1, glow: 1, greeting: 'marry Christmas tian zisu !', subtitle: '把这一夜的星光，都送给你。' };
   let options = { ...defaults }, time = 0, playing = true, last = performance.now(), view = 0;
+  const clamp = n => Math.max(0, Math.min(1, n));
+  const smooth = n => { n = clamp(n); return n * n * (3 - 2 * n); };
+  let celebration = null;
   let seed = 20261225;
   const rand = () => ((seed = Math.imul(seed, 1664525) + 1013904223 >>> 0) / 4294967296);
   const pick = s => s[Math.floor(rand() * s.length)];
   const points = [], snow = [], sprites = new Map();
-  const greens = ['#25b58a', '#38d3a2', '#75e2b6', '#12a989', '#59b5b9', '#9bdfb7', '#7fc575', '#45a19c'];
+  const greens = ['#32bdaf', '#52d6c0', '#b2eee0', '#26a7b3', '#7bd9ed', '#99d7fd', '#9ccee1', '#45b79c'];
   const golds = ['#b47729', '#dfa744', '#f9cc67', '#ffe394', '#fff0bc', '#fff8df'];
   function add(x, y, z, ch, color, type = 'leaf', extra = {}) {
     points.push({ x, y, z, ch, color, type, phase: rand() * TAU, ...extra });
@@ -168,7 +271,15 @@
     const a=rand()*TAU,r=95+rand()*440;
     add(Math.cos(a)*r,-139-rand()*4,Math.sin(a)*r*.8,pick('.:+' ),pick(['#244657','#335465','#557177','#9a916b']),'floor');
   }
-  for(let i=0;i<240;i++)snow.push({x:rand()*W,y:rand()*H,p:rand()*TAU,size:9+rand()*12,alpha:.14+rand()*.55,loops:1+i%2});
+  for(let i=0;i<320;i++)snow.push({x:rand()*W,y:rand()*H,p:rand()*TAU,size:8+rand()*15,alpha:.12+rand()*.55,loops:1+i%2});
+  const dust=Array.from({length:180},()=>({x:rand()*W,y:rand()*H,p:rand()*TAU,s:5+rand()*8}));
+  const wishDust=[];
+  for(const line of [{s:'marry Christmas',y:1635,size:64,start:7.9},{s:'tian zisu !',y:1733,size:94,start:9.7}]){
+    const m=document.createElement('canvas');m.width=1080;m.height=150;
+    const a=m.getContext('2d');a.font=`italic ${line.size}px Georgia, "Times New Roman", serif`;a.textAlign='center';a.textBaseline='middle';a.fillStyle='white';a.fillText(line.s,540,75);
+    const data=a.getImageData(0,0,1080,150).data;
+    for(let y=0;y<150;y+=7)for(let x=0;x<1080;x+=7)if(data[(y*1080+x)*4+3]>100)wishDust.push({x,y:line.y+y-75,p:rand()*TAU,r:60+rand()*180,start:line.start+(x-180)/720*1.4});
+  }
   function sprite(ch,color,glow) {
     const key=ch+color+glow;
     if(sprites.has(key))return sprites.get(key);
@@ -185,22 +296,46 @@
   const b=bg.getContext('2d');b.fillStyle='#030914';b.fillRect(0,0,W,H);
   let grad=b.createRadialGradient(535,930,50,535,930,790);grad.addColorStop(0,'#0c242c');grad.addColorStop(.55,'#07131f');grad.addColorStop(1,'#030711');b.fillStyle=grad;b.fillRect(0,0,W,H);
   grad=b.createRadialGradient(540,1410,0,540,1410,470);grad.addColorStop(0,'#142329');grad.addColorStop(1,'#07111c00');b.fillStyle=grad;b.fillRect(0,1100,W,650);
-  function text(str,y,size,color,font='Consolas, monospace',spacing=0) {
-    ctx.globalAlpha=1;ctx.fillStyle=color;ctx.font=`${size}px ${font}`;ctx.textAlign='center';ctx.textBaseline='middle';
+  function text(str,y,size,color,font='Consolas, monospace',spacing=0,alpha=1) {
+    ctx.globalAlpha=alpha;ctx.fillStyle=color;ctx.font=`${size}px ${font}`;ctx.textAlign='center';ctx.textBaseline='middle';
     if(!spacing){ctx.fillText(str,W/2,y);return;}
     const chars=Array.from(str),width=chars.reduce((n,ch)=>n+ctx.measureText(ch).width,0)+spacing*(chars.length-1);let x=(W-width)/2;
     ctx.textAlign='left';for(const ch of chars){ctx.fillText(ch,x,y);x+=ctx.measureText(ch).width+spacing;}
   }
+  function revealText(str,y,size,start,t){
+    ctx.font=`italic ${size}px Georgia, "Times New Roman", serif`;ctx.textBaseline='middle';ctx.textAlign='left';
+    const chars=Array.from(str),width=ctx.measureText(str).width;let x=(W-width)/2;
+    chars.forEach((ch,i)=>{
+      const progress=clamp((t-start-i*.105)/1.05),settle=1-Math.pow(1-progress,3),w=ctx.measureText(ch).width;
+      if(progress>0){
+        ctx.globalAlpha=smooth(progress*2);ctx.fillStyle='#f8e5bd';ctx.shadowColor='#eebb69';ctx.shadowBlur=(1-progress)*23+2;
+        ctx.fillText(ch,x+Math.sin(i*2.7)*(1-settle)*25,y+(1-settle)*40);
+      }
+      x+=w;
+    });ctx.shadowBlur=0;ctx.globalAlpha=1;
+  }
+  function arrival(p,t){
+    if(p.type==='leaf')return smooth((t-.45-(p.y-125)/725*2.15)/1.65);
+    if(p.type==='ribbon')return smooth((t-2.8-(p.y-139)/695*1.8)/.85);
+    if(p.type==='star')return smooth((t-4.7)/1.1);
+    if(p.type==='gift')return smooth((t-4.6-p.gid*.28)/1.1);
+    if(p.type==='wood')return smooth((t-.3)/1.7);
+    return smooth(t/2.5);
+  }
   function draw(t) {
     const loop=t/20*TAU,rot=loop*options.speed+view,cs=Math.cos(rot),sn=Math.sin(rot),out=[];
+    const zoom=1+.22*(1-smooth((t-2.5)/4)),baseY=1307;
+    const project=(x,y,z)=>{const f=D/(D-z);return {x:540+x*f*zoom,y:870+(baseY-(y+z*.105)*f-870)*zoom,f};};
     ctx.globalAlpha=1;ctx.drawImage(bg,0,0);
-    text('*  A LITTLE LIGHT, A LITTLE MAGIC  *',115,17,'#a9a993','Consolas, monospace',3);
-    text('C H R I S T M A S   /   2 0 2 6',157,13,'#617783');
+    text('FOR YOU, TIAN ZISU',112,20,'#e0c996','Consolas, monospace',5,smooth(t/1.5));
+    text('A LITTLE CHRISTMAS MAGIC',157,13,'#6d939e','Consolas, monospace',3,smooth((t-.5)/2));
+    for(const d of dust)glyph('.',d.x+Math.sin(loop+d.p)*18,d.y,d.s,'#8bd9ec',(.06+.1*Math.sin(loop*2+d.p)**2));
     for(const s of snow){
       const yy=((s.y+t/20*H*s.loops)%H+H)%H,xx=s.x+Math.sin(loop+s.p)*17;
-      glyph(s.size>19?'*':s.size>14?'+':'.',xx,yy,s.size,'#b8d6dd',s.alpha*options.snow*.65);
+      glyph(s.size>20?'*':s.size>14?'+':'.',xx,yy,s.size,'#b8d6dd',s.alpha*options.snow*(.45+.25*smooth(t/6)));
     }
     for(const p of points){
+      const gather=arrival(p,t);if(gather===0)continue;
       let x=p.x,y=p.y,z=p.z,n=1,alpha=1,sz=13,glow=0;
       if(p.type==='star'){
         const a=.38+Math.sin(loop)*.65,ca=Math.cos(a),sa=Math.sin(a);x=p.sx*ca+p.sz*sa;y=963+p.sy;z=-p.sx*sa+p.sz*ca;
@@ -220,39 +355,82 @@
           alpha*=.82+.18*Math.sin(loop*4+p.phase)**2;
         }else{alpha=n<0?.28:.9;sz=14;}
       }else{alpha=.5;sz=10;}
-      const perspective=D/(D-z),px=540+x*perspective,py=1307-(y+z*.105)*perspective;
+      if(gather<1){
+        const remain=1-gather,a=p.phase+t*.9;
+        x+=Math.cos(a)*remain*(250+p.phase*38);z+=Math.sin(a)*remain*260;
+        y+=remain*(Math.sin(p.phase*3)*310-130);alpha*=smooth(gather*2);
+        if(p.type==='star')y+=remain*180;
+      }
+      const q=project(x,y,z),px=q.x,py=q.y;
       if(px<-30||px>W+30||py<180||py>1580)continue;
-      out.push({p,px,py,z,sz:sz*perspective,alpha,glow});
+      out.push({p,px,py,z,sz:sz*q.f*zoom,alpha,glow});
+    }
+    // Two blue-white comets weave in front of and behind the glyph branches.
+    if(t>2.6)for(let band=0;band<2;band++)for(let j=0;j<160;j++){
+      const head=((t-2.6)/5.1+band*.48)%1,h=(head-j*.00135+1)%1;
+      const y=155+h*680,a=h*TAU*4.65+.8-rot,r=radius(y,a+rot)+23+band*6;
+      const x=Math.cos(a)*r,z=Math.sin(a)*r,q=project(x,y,z),front=Math.sin(a);
+      const alpha=(1-j/160)*smooth((t-2.6)/1.3)*(front<0?.06:.87)*options.glow;
+      out.push({p:{ch:j<5?'*':j%3?'.':'+',color:j<7?'#e7fbff':'#76d9ff'},px:q.x,py:q.y,z,sz:(j<5?17:10)*q.f,alpha,glow:j<45?2:1});
+    }
+    // A slanted orbit of stardust gives the whole tree a larger, moving silhouette.
+    if(t>4)for(let j=0;j<145;j++){
+      const a=t*.7-j*.008,r=428,x=Math.cos(a)*r,z=Math.sin(a)*r*.8,y=430+Math.sin(a)*170,q=project(x,y,z);
+      out.push({p:{ch:j<3?'*':'.',color:j<7?'#fff0c1':'#80d0ed'},px:q.x,py:q.y,z,sz:j<4?19:9,alpha:(1-j/145)*.7*smooth((t-4)/1.8)*options.glow,glow:j<18?2:1});
     }
     out.sort((a,b)=>a.z-b.z);
     for(const a of out)glyph(a.p.ch,a.px,a.py,a.sz,a.p.color,a.alpha,a.glow);
+    // The star blooms once, then continues to breathe softly after the reveal.
+    const starQ=project(0,963,0),burst=Math.exp(-Math.pow((t-5.9)/.38,2));
+    if(t>5.3){
+      const pulse=(.12+.08*Math.sin(loop*5)**2+burst*.6)*options.glow;
+      ctx.globalAlpha=pulse;const halo=ctx.createRadialGradient(starQ.x,starQ.y,0,starQ.x,starQ.y,180);
+      halo.addColorStop(0,'#b6f4ff77');halo.addColorStop(.35,'#62d4ff22');halo.addColorStop(1,'#62d4ff00');ctx.fillStyle=halo;ctx.fillRect(starQ.x-180,starQ.y-180,360,360);
+      glyph('+',starQ.x,starQ.y,110+burst*150,'#d8f6ff',pulse,2);
+      glyph('+',starQ.x,starQ.y,48+burst*60,'#fff4cf',pulse+.12,2);
+    }
+    if(t>5.75&&t<7.65){
+      const age=(t-5.75)/1.9;
+      for(let i=0;i<70;i++){const a=i/70*TAU,r=60+age*(180+i%7*12);glyph(i%4?'.':'+',starQ.x+Math.cos(a)*r,starQ.y+Math.sin(a)*r*.8,10,'#8edfff',(1-age)**2*.75,1);}
+    }
     // Glint crosses are ASCII glyphs, too.
     const glints=[[-56,960,21],[62,940,29],[-224,410,51],[146,560,12],[284,250,26],[-292,-5,18],[170,5,32]];
     glints.forEach(([x,y,phase],i)=>{
-      const a=Math.max(0,Math.sin(loop*3+phase))**12*options.glow;
+      const a=Math.max(0,Math.sin(loop*3+phase))**12*options.glow*smooth((t-5)/1.5);
       const f=D/(D-(i<2?25:220));glyph('+',540+x*f,1307-(y+23)*f,24+i%2*8,'#fff3c2',a,2);
     });
-    const greeting=options.greeting.trim()||defaults.greeting;
-    if(greeting.toUpperCase()==='MERRY CHRISTMAS'){
-      text('MERRY',1636,55,'#e7d4a7','Georgia, "Times New Roman", serif',16);
-      text('CHRISTMAS',1712,81,'#f5e7c8','Georgia, "Times New Roman", serif',7);
-    }else{
-      text(greeting.slice(0,40),1683,Math.min(72,1170/(Array.from(greeting).length*.7)),'#f5e7c8','Georgia, "Microsoft YaHei", serif',2);
+    if(t>7.6&&t<13.8)for(const p of wishDust){
+      const age=(t-p.start)/1.65;if(age<0||age>1.25)continue;
+      const g=smooth(age),r=(1-g)*p.r;
+      glyph('+',p.x+Math.cos(p.p+t*.4)*r,p.y+Math.sin(p.p+t*.4)*r,8,'#f6cc83',Math.sin(clamp(age)*Math.PI)*.85,1);
     }
-    text(options.subtitle.slice(0,45),1804,24,'#91a9ad','"Microsoft YaHei", sans-serif',5);
-    text('+  MAY YOUR DAYS BE MERRY & BRIGHT  +',1866,13,'#637e88','Consolas, monospace',2);
+    const greeting=options.greeting.trim()||defaults.greeting;
+    if(greeting===defaults.greeting){
+      revealText('marry Christmas',1635,64,7.9,t);
+      revealText('tian zisu !',1733,94,9.7,t);
+    }else{
+      revealText(greeting.slice(0,40),1685,Math.min(65,1100/(Array.from(greeting).length*.7)),8,t);
+    }
+    text(options.subtitle.slice(0,45),1830,23,'#90adb4','"Microsoft YaHei", sans-serif',3,smooth((t-12.2)/1.8));
+    if(celebration){
+      const age=(performance.now()-celebration.at)/1800;
+      if(age>1)celebration=null;else for(let i=0;i<80;i++){
+        const a=i/80*TAU,r=age*(70+i%9*16),x=celebration.x+Math.cos(a)*r,y=celebration.y+Math.sin(a)*r+age*age*45;
+        glyph(i%3?'+':'*',x,y,8+i%5*2,i%2?'#ffcf83':'#9eeeff',(1-age)**2,2);
+      }
+    }
     ctx.globalAlpha=1;
   }
   const api={ready:true,renderAt(t){playing=false;time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},setOptions(o){
     options={...options,...o};for(const k of ['speed','snow','glow'])options[k]=Math.max(0,Math.min(2,Number(options[k])||0));
     options.greeting=String(options.greeting);options.subtitle=String(options.subtitle);draw(time);
-  },getOptions(){return {...options};},setTime(t){time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},play(){if(time>=20)time=0;playing=true;last=performance.now();},pause(){playing=false;},isPlaying(){return playing;},getTime(){return time;},resetView(){view=0;draw(time);},onFrame:null};
+  },getOptions(){return {...options};},setTime(t){time=Math.max(0,Math.min(20,Number(t)||0));draw(time);},play(){playing=true;last=performance.now();},pause(){playing=false;},isPlaying(){return playing;},getTime(){return time;},resetView(){view=0;draw(time);},replay(){time=0;view=0;celebration=null;playing=true;last=performance.now();draw(0);},celebrate(x,y){celebration={x:Number(x)||540,y:Number(y)||900,at:performance.now()};draw(time);},onFrame:null};
   window.__christmas=api;
   let drag=null;
   canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,view};canvas.setPointerCapture(e.pointerId);});
   canvas.addEventListener('pointermove',e=>{if(drag){view=drag.view+(e.clientX-drag.x)*.008;draw(time);}});
   canvas.addEventListener('pointerup',()=>{drag=null;});canvas.addEventListener('pointercancel',()=>{drag=null;});
-  function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing){time=(time+dt)%20;draw(time);}if(api.onFrame)api.onFrame(time,playing);requestAnimationFrame(frame);}
+  function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing){time+=dt;draw(time);}else if(celebration)draw(time);if(api.onFrame)api.onFrame(time,playing);requestAnimationFrame(frame);}
   draw(0);requestAnimationFrame(frame);
 })();
 
@@ -260,63 +438,67 @@
   <script>
 (() => {
   'use strict';
-  const $ = id => document.getElementById(id);
-  const api = window.__christmas;
-  if (!api) { $('status').textContent = '动画暂未载入，请刷新页面或下载 MP4 观看。'; return; }
-  const defaults = {speed:1,snow:1,glow:1,greeting:'MERRY CHRISTMAS',subtitle:'愿所有美好，如雪而至'};
-  const timeText = seconds => '00:' + String(Math.min(20, Math.floor(seconds))).padStart(2,'0');
-  let scrubbing = false;
-  const updateRange = input => input.style.setProperty('--progress', ((Number(input.value)-Number(input.min))/(Number(input.max)-Number(input.min))*100) + '%');
-  function updatePlayback(time, playing) {
-    if (!scrubbing) { $('timeline').value = time; updateRange($('timeline')); }
-    $('current-time').textContent = timeText(time);
-    $('play-label').textContent = playing ? '暂停' : '播放';
-    $('play').querySelector('.play-icon').textContent = playing ? 'Ⅱ' : '▷';
-    $('play').setAttribute('aria-label', playing ? '暂停动画' : '播放动画');
-  }
-  $('play').addEventListener('click', () => { api.isPlaying() ? api.pause() : api.play(); updatePlayback(api.getTime(),api.isPlaying()); });
-  $('timeline').addEventListener('pointerdown', () => { scrubbing = true; });
-  $('timeline').addEventListener('input', e => { api.setTime(Number(e.target.value)); updateRange(e.target); $('current-time').textContent=timeText(Number(e.target.value)); });
-  $('timeline').addEventListener('change', () => { scrubbing = false; updatePlayback(api.getTime(),api.isPlaying()); });
-  $('timeline').addEventListener('pointerup', () => { scrubbing = false; });
-  for (const key of ['greeting','subtitle']) $(''+key).addEventListener('input', e => api.setOptions({[key]:e.target.value}));
-  for (const key of ['speed','snow','glow']) {
-    const input = $(key);
-    const update = () => {
-      const value=Number(input.value);
-      $(key+'-value').value = key==='speed' ? value.toFixed(1)+'×' : Math.round(value*100)+'%';
-      updateRange(input);
-    };
-    input.addEventListener('input', () => { api.setOptions({[key]:Number(input.value)}); update(); });
-    update();
-  }
-  $('reset').addEventListener('click', () => {
-    api.setOptions({...defaults}); api.resetView(); api.setTime(0);
-    for (const [key,value] of Object.entries(defaults)) $(key).value=value;
-    for (const key of ['speed','snow','glow']) { $(key+'-value').value=key==='speed' ? '1.0×' : '100%'; updateRange($(key)); }
-    updatePlayback(api.getTime(),api.isPlaying()); $('status').textContent='已恢复初始祝福与画面。';
+  const shell = document.getElementById('gift-shell');
+  const fullscreenButton = document.getElementById('fullscreen');
+  const status = document.getElementById('status');
+  const api = () => window.__christmas;
+
+  document.getElementById('replay').addEventListener('click', () => {
+    const scene = api();
+    if (!scene) return;
+    if (typeof scene.replay === 'function') scene.replay();
+    else { scene.setTime(0); scene.play(); }
+    status.textContent = '再送你一场圣诞星光。';
   });
+
+  const isImmersive = () => Boolean(document.fullscreenElement) || document.body.classList.contains('immersive');
+  function updateFullscreenLabel() {
+    const active = isImmersive();
+    fullscreenButton.textContent = active ? '退出全屏' : '全屏';
+    fullscreenButton.setAttribute('aria-pressed', String(active));
+  }
   async function fullscreen() {
-    try {
-      if (document.fullscreenElement) await document.exitFullscreen();
-      else if ($('artwork').requestFullscreen) await $('artwork').requestFullscreen();
-      else { document.body.classList.toggle('immersive'); $('status').textContent='此浏览器不支持全屏，可使用手机竖屏观看。'; }
-    } catch { $('status').textContent='浏览器未允许全屏，请直接观看或下载影片。'; }
+    if (document.fullscreenElement) {
+      try { await document.exitFullscreen(); }
+      catch { status.textContent = '可按 Esc 退出全屏。'; }
+    } else if (document.body.classList.contains('immersive')) {
+      document.body.classList.remove('immersive');
+    } else {
+      try {
+        if (!shell.requestFullscreen) throw new Error('Fullscreen unavailable');
+        await shell.requestFullscreen();
+      } catch {
+        document.body.classList.add('immersive');
+      }
+    }
+    updateFullscreenLabel();
   }
-  $('fullscreen').addEventListener('click',fullscreen);
-  $('exit-fullscreen').addEventListener('click',fullscreen);
-  document.addEventListener('fullscreenchange',() => { $('fullscreen').textContent=document.fullscreenElement?'退出全屏':'全屏'; });
-  $('mobile-toggle').addEventListener('click', () => {
-    const open=document.querySelector('.sidebar').classList.toggle('is-open');
-    $('mobile-toggle').setAttribute('aria-expanded',String(open));
-    $('mobile-toggle-label').textContent=open?'收起 −':'播放与调整 +';
+  fullscreenButton.addEventListener('click', fullscreen);
+  document.addEventListener('fullscreenchange', updateFullscreenLabel);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('immersive')) {
+      document.body.classList.remove('immersive');
+      updateFullscreenLabel();
+    }
   });
-  document.addEventListener('keydown',e => {
-    if (e.code==='Space' && !['INPUT','BUTTON','SUMMARY','TEXTAREA','A'].includes(document.activeElement.tagName)) { e.preventDefault(); $('play').click(); }
+
+  // A tap can add a little extra starlight; a drag stays a rotation gesture.
+  const canvas = document.getElementById('scene');
+  let pressed = null;
+  canvas.addEventListener('pointerdown', event => {
+    pressed = { x: event.clientX, y: event.clientY, id: event.pointerId };
   });
-  const priorFrame = api.onFrame;
-  api.onFrame=(time,playing) => { if (typeof priorFrame==='function') priorFrame(time,playing); updatePlayback(time,playing); };
-  updatePlayback(api.getTime(),api.isPlaying());
+  canvas.addEventListener('pointerup', event => {
+    if (!pressed || event.pointerId !== pressed.id) return;
+    const moved = Math.hypot(event.clientX - pressed.x, event.clientY - pressed.y);
+    pressed = null;
+    const scene = api();
+    if (moved > 9 || typeof scene?.celebrate !== 'function') return;
+    const box = canvas.getBoundingClientRect();
+    scene.celebrate((event.clientX - box.left) / box.width * canvas.width,
+      (event.clientY - box.top) / box.height * canvas.height);
+  });
+  canvas.addEventListener('pointercancel', () => { pressed = null; });
 })();
 
 </script>

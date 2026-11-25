@@ -2,7 +2,13 @@
 
 一棵由 ASCII 字母、数字和符号构成的 3D 圣诞树。包含彩色分层树冠、金色螺旋灯带、带厚度的金星与礼物、树干和树根、飘雪及可修改祝福。
 
-公开播放与下载：https://ascii-christmas-shawn-2026.festivebuffalo2.chatgpt.site
+公开播放与下载：https://shawnliao23.github.io/Christmas_tree/
+
+## GitHub Pages 部署
+
+仓库：https://github.com/shawnLiao23/Christmas_tree
+
+已启用 GitHub Pages（Source: GitHub Actions）。推送 `main` 分支中的 `dist/` 变更会自动运行 `.github/workflows/deploy-pages.yml`，将网页、MP4 和源码 ZIP 一起发布。也可以在 Actions 中手动运行 `Publish Christmas animation`。所有拿到公开链接的人都可访问与下载，不需要登录 GitHub。
 
 ## 文件
 

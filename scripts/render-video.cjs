@@ -21,6 +21,7 @@ async function main() {
   try {
     await page.goto(url, {waitUntil:'networkidle'});
     await page.waitForFunction(() => window.__christmas && window.__christmas.ready, null, {timeout:30000});
+    if(process.argv.includes('--anonymous'))await page.evaluate(()=>window.__christmas.setOptions({anonymous:true}));
     const encoder = spawn(ffmpeg, ['-y','-f','image2pipe','-vcodec','png','-framerate',String(fps),'-i','pipe:0',
       '-an','-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart','-t',String(duration),output],
       {windowsHide:true,stdio:['pipe','ignore','pipe']});

@@ -2,7 +2,7 @@
 
 一份送给 tian zisu 的圣诞礼物。
 
-**marry Christmas tian zisu !**
+**Marry Christmas tian zisu !**
 
 把这一夜的星光，都送给你。
 
@@ -13,6 +13,8 @@
 网页打开即播放，完成入场后持续旋转；“再看一次”会重放整段入场与祝福。点击画面可唤起额外星光。页面只呈现礼物本身。
 
 仓库保留可修改网页、单文件离线版、源码 ZIP，以及 20 秒竖屏 MP4。网页不显示下载、源码或制作说明。
+
+网站保留 tian zisu 的名字；MP4 为小红书发布用无姓名版，顶部与祝福文字均不包含名字，显示 `Marry Christmas !`。导出脚本的 `--anonymous` 参数仅作用于影片，网页默认保持专属祝福。
 
 `dist/` 为发布内容；更新后推送到 `main`，GitHub Actions 会自动发布到原来的 GitHub Pages 地址。`scripts/` 保留离线打包、影片导出和完整播放验证工具。
 
